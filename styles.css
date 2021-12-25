@@ -1,0 +1,64 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,300;0,400;0,500;1,300;1,400;1,500&display=swap');
+* {
+    font-family: 'Roboto', 'Sans-serif';
+    
+    
+}
+body {
+    background-color: #3a0d75;
+    background-image: url("https://www.transparenttextures.com/patterns/cubes.png");
+    color: whitesmoke;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+img {
+    width: 30%;
+    margin: 20px;
+}
+.numberOfQuestions {
+    width: 20%;
+    align-self: center;
+    height: 20px;
+    margin: 20px;
+}
+.startGame {
+    width: 20%;
+    height: 30px;
+    align-self: center;
+    margin-bottom: 100px;
+    border-radius: 35px;
+    height: 50px;
+    font-size: 18px;
+    background-color: slategrey;
+    border: solid 2px rgb(255, 255, 255); 
+    color: whitesmoke;
+}
+.startGame:hover {
+    box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
+}
+.checkGame {
+    margin: 60px;
+    width: 200px;
+    height: 50px;
+    font-size: 18px;
+    background-color: slategrey;
+    border: solid 2px rgb(255, 255, 255); 
+    color: whitesmoke;
+    border-radius: 35px;
+
+}
+.checkGame:hover {
+    box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
+}
+.conclusion {
+    display: flex;
+    flex-direction: column;
+    
+}
+.conclusion h4 {
+    padding-left: 50px;
+}
+.conclusion h3 {
+    padding-left: 40px;
+}

@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="./script.js" defer></script>
+    <link rel="stylesheet" href="styles.css">
+    <title>Document</title>
+</head>
+<body>
+    <img src="./images/logo.png" />
+    <h4>ELIGE DIFICULTAD</h4>
+    <form>
+    <input type="radio" name="choice" value="easy" id="choice-easy"> 
+        <label for="choice-easy">Easy</label>
+    <input type="radio" name="choice" value="medium" id="choice-medium"> 
+        <label for="choice-medium">Medium</label>
+    <input type="radio" name="choice" value="hard" id="choice-hard"> 
+        <label for="choice-hard">Hard</label>
+    <input type="radio" name="choice" value="Any difficulty" id="choice-any"> 
+        <label for="choice-any">Any difficulty</label>
+    </form>
+
+    <input class="numberOfQuestions" type="text" placeholder="¿cuántas preguntas quieres?">
+    <button class="startGame">Start game!</button>
+
+    <div data-function="gameboard">
+
+    </div>
+
+    <button class="checkGame">Check game</button>
+    <div class="conclusion"></div>
+    
+
+</body>
+</html>
