@@ -17,7 +17,7 @@ const checkButton$$ = document.querySelector(".checkGame");
 const conclusion$$ = document.querySelector(".conclusion");
 
 
-let url = "https://opentdb.com/api.php?amount=";
+
 
 let correctAnswers = [];
 let incorrectAnswers = [];
@@ -27,29 +27,37 @@ let countCorrect = 0;
 
 
 const loadQuestions = async () => {
+    let url = "https://opentdb.com/api.php?amount=";
+    const category$$ = document.querySelector("#category");
+    let categoria = category$$.value;
+
+    
+
     const rbs = document.querySelectorAll('input[name="choice"]');
-    let selectedValue;
+    let selectedDifficulty;
         for (const rb of rbs) {
             if (rb.checked) {
-                selectedValue = rb.value;
+                selectedDifficulty = rb.value;
                 break;
             }
         }
-    alert(selectedValue);
+    /* alert(selectedDifficulty); */
+
+    url = url + input$$.value;
+
+    if (categoria != "any") {
+        url = url + "&category=" + categoria;
+    };
 
 
-
-
-
-    if (selectedValue == "Any difficulty" || selectedValue == undefined) {
-        url = url + input$$.value;
-    } else {
-        url = url + input$$.value + "&difficulty=" + selectedValue;
-    }
+    if (selectedDifficulty != "Any difficulty" && selectedDifficulty != undefined) {
+        url = url + "&difficulty=" + selectedDifficulty;
+    };
+    /* alert(url); */
     const questionData = await fetch(url);
     const questionDataRes = await questionData.json();
 
-    console.log(questionDataRes);
+   /*  console.log(questionDataRes); */
     
     divGame$$.innerHTML = '';
     conclusion$$.innerHTML = '';
@@ -66,6 +74,7 @@ const loadQuestions = async () => {
 
         let correctedQuestion = questionTest[i].replace(/&quot;/g, "'");
         correctedQuestion = correctedQuestion.replace(/&#039;/g, "'");
+        correctedQuestion = correctedQuestion.replace(/&eacute;/g, "é");
         printQuestion$$.innerText = `${i+1}: Category: ${questionCategory[i]} ==> ${correctedQuestion}`;
         allAnswers[i] = [correctAnswers[i], ...incorrectAnswers[i]];
         let randomAnswers = shuffle(allAnswers[i]);
@@ -81,6 +90,7 @@ const loadQuestions = async () => {
         checkButton$$.addEventListener('click', () => {
             if (i == 0){
                 conclusion$$.innerText = '';
+                countCorrect = 0;
             };  
             selectedAnswers = [];
             const selectedValues = [].filter
@@ -100,9 +110,9 @@ const loadQuestions = async () => {
             };
 
             if (i == input$$.value-1) {
-                const conclusionMessage$$ = document.createElement('h3');
+                const conclusionMessage$$ = document.createElement('div');
                 conclusion$$.appendChild(conclusionMessage$$);
-                conclusionMessage$$.innerText = `Has acertado ${countCorrect}/${input$$.value} preguntas`;
+                conclusionMessage$$.innerHTML = `<h3 class="mensaje">Has acertado ${countCorrect} de ${input$$.value} preguntas </h3>`;
             };  
                  
         });
@@ -119,10 +129,10 @@ startButton$$.addEventListener('click', loadQuestions);
 
 function shuffle(arr) {
     let newArr = arr;
-    for(let i = newArr.length-1; i>=0; i--){
-        let k = Math.floor(Math.random() * (newArr.length));
-        [newArr[i], newArr[k]] = [newArr[k], newArr[i]];
-    };
+    
+    let k = Math.floor(Math.random() * (newArr.length));
+    [newArr[0], newArr[k]] = [newArr[k], newArr[0]];
+    
     return newArr;
 };
 
