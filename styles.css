@@ -28,14 +28,21 @@ img {
 
 .elige {
    text-decoration: underline; 
-   margin-top: 20px;
+   margin-top: 60px;
+   color: rgb(201, 181, 4); 
 }
+
 .numberOfQuestions {
-    width: 20%;
+    width: 50%;
     align-self: center;
     height: 20px;
     margin: 20px;
 }
+@media (min-width: 1024px) {
+    .numberOfQuestions {
+      width: 20%;
+    }
+  }
 .startGame {
     width: 40%;
     height: 30px;
@@ -74,20 +81,18 @@ img {
     display: flex;
     flex-direction: column;
     width: 90%;
+    align-items: center;
     
 }
 @media (min-width: 1024px) {
     .conclusion {
       width: 100%;
+      align-items: center;
     }
   }
-  @media (min-width: 1024px) {
-    .conclusion h4 {
-      padding-left: 200px;
-    }
-  }
-.conclusion h4 {
-    
-}
+
+
 .mensaje {
+  align-self: center;
+  color: rgb(201, 181, 4);
 }
